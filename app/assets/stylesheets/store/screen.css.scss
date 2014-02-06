@@ -225,7 +225,6 @@ a.button {
 /*--------------------------------------*/
 footer#footer {
   padding: 10px 0;
-  
   border-top: $default_border;
   float: left;
 }
@@ -294,6 +293,7 @@ nav #main-nav-bar {
   font-weight: bold;
   margin-top: 20px;
   border-bottom: $default_border;
+  border-bottom-width: 3px;
   padding-bottom: 6px;
 
   li {
