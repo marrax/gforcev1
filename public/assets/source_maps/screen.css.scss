@@ -52,6 +52,7 @@ a {
 /* Lists
 /*--------------------------------------*/
 ul, ol {
+  list-style: none; 
   margin-left: 0;
   margin-top: 0;
   -webkit-padding-start: 0px;
@@ -224,7 +225,9 @@ a.button {
 /*--------------------------------------*/
 footer#footer {
   padding: 10px 0;
+  
   border-top: $default_border;
+  float: left;
 }
 
 /*--------------------------------------*/
