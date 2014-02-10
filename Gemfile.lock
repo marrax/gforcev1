@@ -60,7 +60,7 @@ GEM
     active_utils (2.0.1)
       activesupport (>= 2.3.11)
       i18n
-    activemerchant (1.42.4)
+    activemerchant (1.42.5)
       active_utils (~> 2.0, >= 2.0.1)
       activesupport (>= 2.3.14, < 5.0.0)
       builder (>= 2.1.2, < 4.0.0)
@@ -88,7 +88,7 @@ GEM
     akami (1.2.1)
       gyoku (>= 0.4.0)
       nokogiri
-    arel (4.0.1)
+    arel (4.0.2)
     atomic (1.1.14)
     awesome_nested_set (3.0.0.rc.3)
       activerecord (>= 4.0.0, < 5)
