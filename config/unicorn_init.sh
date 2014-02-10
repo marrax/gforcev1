@@ -1,36 +1,23 @@
 #!/bin/sh
 set -e
 
-
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
-APP_ROOT=<%= current_path %>
-PID_DIR=$APP_ROOT/tmp/pids
-PID=$PID_DIR/unicorn.pid
-CMD="cd $APP_ROOT;  bundle exec unicorn -D -c <%= "#{shared_path}/config/unicorn.rb" %> -E <%= fetch(:rails_env) %>"
+APP_ROOT=/home/deployer/apps/blog/current
+PID=$APP_ROOT/tmp/pids/unicorn.pid
+CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
 AS_USER=deployer
 set -u
 
-
 OLD_PIN="$PID.oldbin"
-
 
 sig () {
   test -s "$PID" && kill -$1 `cat $PID`
 }
 
-
 oldsig () {
   test -s $OLD_PIN && kill -$1 `cat $OLD_PIN`
 }
-
-
-workersig () {
-  workerpid="$APP_ROOT/tmp/pids/unicorn.$2.pid"
-  
-  test -s "$workerpid" && kill -$1 `cat $workerpid`
-}
-
 
 run () {
   if [ "$(id -un)" = "$AS_USER" ]; then
@@ -39,7 +26,6 @@ run () {
     su -c "$1" - $AS_USER
   fi
 }
-
 
 case "$1" in
 start)
@@ -54,12 +40,8 @@ force-stop)
   sig TERM && exit 0
   echo >&2 "Not running"
   ;;
-kill_worker)
-  workersig QUIT $2 && exit 0
-  echo >&2 "Worker not running"
-  ;;
 restart|reload)
-  sig USR2 && echo reloaded OK && exit 0
+  sig HUP && echo reloaded OK && exit 0
   echo >&2 "Couldn't reload, starting '$CMD' instead"
   run "$CMD"
   ;;
@@ -72,7 +54,6 @@ upgrade)
       printf '.' && sleep 1 && n=$(( $n - 1 ))
     done
     echo
-
 
     if test $n -lt 0 && test -s $OLD_PIN
     then
@@ -92,5 +73,3 @@ reopen-logs)
   exit 1
   ;;
 esac
-
-

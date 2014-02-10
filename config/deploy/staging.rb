@@ -20,8 +20,9 @@ server '188.226.158.188', user: 'deployer', roles: %w{web app db}, my_property: 
 set :full_app_name, "#{fetch(:application)}"
 set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/#{fetch(:full_app_name)}"
 
-set :unicorn_worker_count, 5
+set :unicorn_worker_count, 2
 set :enable_ssl, false
+set :rails_env, :staging
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options

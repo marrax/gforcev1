@@ -51,10 +51,10 @@ test:
   username: gforcev1
   password: 99ice99
 
-#production:
-#  adapter: postgresql
-#  encoding: unicode
-#  database: gforcev1_production
-#  pool: 5
-#  username: gforcev1
-#  password: 99ice99
+production:
+ adapter: postgresql
+ encoding: unicode
+ database: gforcev1_production
+ pool: 5
+ username: gforcev1
+ password: 99ice99
