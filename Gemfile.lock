@@ -235,6 +235,8 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    rvm-capistrano (1.5.1)
+      capistrano (~> 2.15.4)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
@@ -356,6 +358,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 4.0.2)
+  rvm-capistrano
   sass!
   sass-rails (~> 4.0.0)
   sass-rails-source-maps
