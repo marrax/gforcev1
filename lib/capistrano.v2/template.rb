@@ -22,6 +22,7 @@ def smart_template(from, to=nil)
   end
 end
 
+
 def template_file(name)
   if File.exist?((file = "config/deploy/#{fetch(:full_app_name)}/#{name}.erb"))
     return file

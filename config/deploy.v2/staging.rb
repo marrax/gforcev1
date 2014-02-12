@@ -1,23 +1,28 @@
+set :stage, :staging
+
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-# Don't declare `role :all`, it's a meta role
-set  :stage, :staging
-set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
-server '188.226.158.188', user: 'deployer', roles: %w{web app db}, primary: true
-set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/#{fetch(:full_app_name)}"
-set :rails_env, :staging
-set :unicorn_worker_count, 2
-set :enable_ssl, false
+role :app, %w{deployer@188.226.158.188}
+role :web, %w{deployer@188.226.158.188}
+role :db,  %w{deployer@188.226.158.188}
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-#server '188.226.158.188', user: 'deployer', roles: %w{web app}, my_property: :my_value
+server '188.226.158.188', user: 'deployer', roles: %w{web app db}, my_property: :my_value
+
+set :full_app_name, "#{fetch(:application)}"
+set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/#{fetch(:full_app_name)}"
+
+set :unicorn_worker_count, 2
+set :enable_ssl, false
+set :rails_env, :staging
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
@@ -40,3 +45,5 @@ set :enable_ssl, false
 #     # password: 'please use keys'
 #   }
 # setting per server overrides global ssh_options
+
+# fetch(:default_env).merge!(rails_env: :staging)

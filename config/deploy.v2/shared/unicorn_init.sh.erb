@@ -1,30 +1,36 @@
 #!/bin/sh
 set -e
 
+
 # Feel free to change any of the following variables for your app:
 TIMEOUT=${TIMEOUT-60}
 APP_ROOT=<%= current_path %>
 PID_DIR=$APP_ROOT/tmp/pids
 PID=$PID_DIR/unicorn.pid
 CMD="cd $APP_ROOT;  bundle exec unicorn -D -c <%= "#{shared_path}/config/unicorn.rb" %> -E <%= fetch(:rails_env) %>"
-AS_USER=deploy
+AS_USER=deployer
 set -u
 
+
 OLD_PIN="$PID.oldbin"
+
 
 sig () {
   test -s "$PID" && kill -$1 `cat $PID`
 }
 
+
 oldsig () {
   test -s $OLD_PIN && kill -$1 `cat $OLD_PIN`
 }
+
 
 workersig () {
   workerpid="$APP_ROOT/tmp/pids/unicorn.$2.pid"
   
   test -s "$workerpid" && kill -$1 `cat $workerpid`
 }
+
 
 run () {
   if [ "$(id -un)" = "$AS_USER" ]; then
@@ -33,6 +39,7 @@ run () {
     su -c "$1" - $AS_USER
   fi
 }
+
 
 case "$1" in
 start)
@@ -66,6 +73,7 @@ upgrade)
     done
     echo
 
+
     if test $n -lt 0 && test -s $OLD_PIN
     then
       echo >&2 "$OLD_PIN still exists after $TIMEOUT seconds"
@@ -84,3 +92,5 @@ reopen-logs)
   exit 1
   ;;
 esac
+
+
