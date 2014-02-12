@@ -10,6 +10,7 @@ module Gforcev1
   class Application < Rails::Application
 
     I18n.config.enforce_available_locales = true
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 
     config.to_prepare do
       # Load application's model / class decorators
