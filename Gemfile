@@ -46,7 +46,7 @@ gem 'unicorn'
 
 # Use Capistrano for deployment
 gem 'capistrano', '~> 3.1'
-gem 'capistrano-rails', '~>1.1'
+gem 'capistrano-rails', '~>1.1.1'
 gem 'capistrano-rvm'
 #gem 'capistrano', '2.15.4'
 #gem 'rvm-capistrano'
