@@ -10,7 +10,6 @@ module Gforcev1
   class Application < Rails::Application
 
     I18n.config.enforce_available_locales = true
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 
     config.to_prepare do
       # Load application's model / class decorators
@@ -37,5 +36,6 @@ module Gforcev1
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
