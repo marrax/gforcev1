@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/dedhaz/spree_product_zoom.git
-  revision: 6bcee31f2d764c244f338b6953826fd650d06196
-  branch: patch-2
-  specs:
-    spree_product_zoom (1.3)
-      spree_core (~> 2.1.0.beta)
-
-GIT
   remote: git://github.com/radar/better_spree_paypal_express.git
   revision: d06424352046dcfbeedac26af6b106ffdf41205b
   branch: 2-1-stable
@@ -24,6 +16,14 @@ GIT
       ckeditor
       spree_backend (>= 2.1.4)
       tinymce-rails (~> 3.5.8.3)
+
+GIT
+  remote: git://github.com/spree/spree_product_zoom.git
+  revision: e583d2d6d4ce2748b8fc73df9452643a166af3b7
+  branch: 2-1-stable
+  specs:
+    spree_product_zoom (1.3)
+      spree_core (~> 2.1.0)
 
 GIT
   remote: git://github.com/spree/spree_static_content.git
