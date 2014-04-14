@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "",
+  "sourceRoot": "",
+  "sources": [
+    "/assets/source_maps/bundler/gems/spree_backend-2.1.4/app/assets/javascripts/admin/images/new.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;AAAA,EAAA,CAAC,CAAA,CAAE,cAAF,CAAD,CAAkB,CAAC,KAAnB,CAAyB,SAAC,KAAD,GAAA;AACvB,IAAA,KAAK,CAAC,cAAN,CAAA,CAAA,CAAA;AAAA,IAEA,CAAC,CAAA,CAAE,mBAAF,CAAD,CAAuB,CAAC,IAAxB,CAAA,CAFA,CAAA;AAAA,IAIA,CAAC,CAAA,CAAE,iBAAF,CAAD,CAAqB,CAAC,IAAtB,CAAA,CAJA,CAAA;WAKA,CAAC,CAAA,CAAE,SAAF,CAAD,CAAa,CAAC,IAAd,CAAmB,EAAnB,EANuB;EAAA,CAAzB,CAAA,CAAA;AAAA"
+}
